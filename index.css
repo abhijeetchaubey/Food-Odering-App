@@ -1,9 +1,73 @@
-#heading{
-    color: blue;
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: wheat;
+    padding: 0 20px;
+    
 }
-#heading1{
-    color: red;
+.logo{
+    width: 50px;
+    border-radius: 10px;
+    margin: 0.5rem;
 }
-#container{
-    border: 2px solid black;
+
+.nav-items ul{
+    display: flex;
+    list-style: none;
+    font-size: 24px;
+    font-weight: 500;
+}
+.nav-items ul li{
+    padding-left: 1.5rem;
+}
+
+.search{
+    width: 100vw;
+    height:fit-content ;
+    border: 1px solid black;
+    margin: 1rem;
+    padding: 10px;
+}
+.restraunt-container{
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.restraunt-card{
+    width: 20%;
+    /* border: 1px solid black; */
+    border-radius: 15px;
+    margin: 1rem 1.5rem;
+}
+.restraunt-card:hover{
+    border: 0.1px solid rgb(134, 129, 129);
+    transition: all 100ms;
+    transform:scale(0.9) ;
+    cursor: pointer;
+}
+
+.restraunt-logo{
+    background-size: cover;
+    border-radius: 15px;
+    width: 100%;
+}
+.filter-btn{
+    margin: 10px;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(77, 77, 213);
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+}
+.filter-btn:hover{
+    filter: grayscale(0.5);
+    transition: all 100ms;
+    transform: scale(0.8);
+    
 }
