@@ -53,5 +53,8 @@ Footer{
 
 # React Hooks
 (Normal JS function)
-  -useState() => Superpowerfull State variable in React -> Whenever stateVariable Changes reactt rerender the component
+  -useState() => Superpowerfull State variable in React -> Whenever stateVariable Changes react rerender the component
   -useEffect()
+
+
+# Monolith Architecture :-
