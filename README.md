@@ -53,8 +53,10 @@ Footer{
 
 # React Hooks
 (Normal JS function)
-  -useState() => Superpowerfull State variable in React -> Whenever stateVariable Changes react rerender the component
+  -useState() => Superpowerfull State variable in React -> Whenever stateVariable Changes react trigers the reconciliation cycle (rerender the component)
   -useEffect()
 
 
-# Monolith Architecture :-
+# 2 Type of Routing in web app
+  -Client side Routing
+  -Server side Routing
