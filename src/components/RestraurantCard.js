@@ -4,7 +4,7 @@ import { CDN_URL,BURGER_KING_IMG, styleCard} from "../utils/constants";
 const RestraurantCard=(props)=>{
     const {resList} = props;
 
-    const{cloudinaryImageId,name,cuisines,avgRating,costForTwo} =resList?.info;   //destructing
+    const{cloudinaryImageId,name,cuisines,avgRating,costForTwo,sla} =resList?.info;   //destructing
 
     return(
         <div className="restraunt-card" style={styleCard}>
@@ -25,7 +25,7 @@ const RestraurantCard=(props)=>{
             <h4>{cuisines.join(", ") || 'Cuisines not available'}</h4>
             <h4>{avgRating || 'Rating not available'}</h4>
             <h4>{costForTwo || 'Cost for two not available'}</h4>
-                <h4>{resList.info.sla.deliveryTime}minutes</h4>
+                <h4>{sla?.slaString}</h4>
 
             </div>
         </div>
