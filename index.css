@@ -111,3 +111,24 @@
     transform: scale(0.9);
     cursor: pointer;
 }
+.menu {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.Cafe-name{
+    margin-top: 10px;
+    margin-left: 10%;
+}
+.cafe-detail{
+    margin: auto;
+    width: 50%;
+    height: fit-content;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+.cafe-img{
+    width: 10px;
+    height: 50px;
+}
