@@ -15,17 +15,16 @@ const RestraurantCard=(props)=>{
                 src={
                     cloudinaryImageId 
                         ? CDN_URL+cloudinaryImageId
-                        : BURGER_KING_IMG
+                        :"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.logo.wine%2Flogo%2FBurger_King&psig=AOvVaw2ptafemGG9Wtr5OfG_TZaC&ust=1721900363379000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPDHv--wv4cDFQAAAAAdAAAAABAE"
                 }
-
                 />
+
             </div>
             <div className="card-details">
-            <h3>{name || 'Name not available'}</h3>
-            <h4>{cuisines.join(", ") || 'Cuisines not available'}</h4>
-            <h4>{avgRating || 'Rating not available'}</h4>
-            <h4>{costForTwo || 'Cost for two not available'}</h4>
-                <h4>{sla?.slaString}</h4>
+            <>{name || 'Name not available'}</>
+            <p>{avgRating || 'Rating not available'} {sla?.slaString}</p>
+            <p>{cuisines.join(", ") || 'Cuisines not available'}</p>
+            <p>{costForTwo || 'Cost for two not available'}</p>
 
             </div>
         </div>
