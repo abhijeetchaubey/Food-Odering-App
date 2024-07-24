@@ -7,3 +7,5 @@ export const LOGO_URL="https://marketplace.canva.com/EAFaFUz4aKo/2/0/1600w/canva
 export const styleCard ={
     backgroundColor:"#f0f0f0"
 }
+
+export const MENU_URL ="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.3164945&lng=78.03219179999999&restaurantId="
