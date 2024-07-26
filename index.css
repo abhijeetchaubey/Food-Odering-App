@@ -178,3 +178,8 @@
     font-size: 20px;
     font-weight: 600;
 }
+
+.user-card{
+    padding: 10px;
+    border: 1px solid black;
+}
