@@ -2,26 +2,33 @@ import { useEffect,useState } from "react"
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import { MENU_URL } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestraurantMenu";
 
 const RestraurantMenu =()=>{
-    const [resInfo,setResInfo]=useState(null);
 
     const {resId} = useParams();
     console.log(resId);
 
-    useEffect(()=>{
-        fetchMenu()
-    },[])
+// ********** custom Hooks for Api fetching and displaying functionality in useRestraurantMenu**********
+    const resInfo = useRestaurantMenu(resId)
+//*****Fetching API for rendering menuCard using normal Hooks */ 
+    
+    // const [resInfo,setResInfo]=useState(null);
 
-    const fetchMenu = async()=>{
-        const menu = await fetch(MENU_URL+resId);
+    // useEffect(()=>{
+    //     fetchMenu()
+    // },[])
+
+    // const fetchMenu = async()=>{
+    //     const menu = await fetch(MENU_URL+resId);
         
-        const json = await menu.json();
+    //     const json = await menu.json();
 
-        console.log(json);
-        setResInfo(json?.data)
+    //     console.log(json);
+    //     setResInfo(json?.data)
+    // };
 
-    };
+    // **************/
 
     const {
         name = '',
@@ -62,7 +69,7 @@ const RestraurantMenu =()=>{
                     <div className="restraurant-discription">
                         <p> <strong>Outlet</strong> <span>{areaName}</span> </p>
                         <p><strong>{sla.slaString}</strong></p>
-                        <p > <span>{expectationNotifiers[0].text}</span></p>
+                        <p > <span>{expectationNotifiers[0]?.text}</span></p>
                     </div>
                 </div >
             </div>

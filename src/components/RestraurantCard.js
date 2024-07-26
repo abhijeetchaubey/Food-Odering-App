@@ -1,4 +1,4 @@
-import { CDN_URL,BURGER_KING_IMG, styleCard} from "../utils/constants";
+import { CDN_URL, styleCard} from "../utils/constants";
 
 
 const RestraurantCard=(props)=>{
