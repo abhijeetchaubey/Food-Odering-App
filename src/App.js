@@ -7,7 +7,7 @@ import About from "./components/About"
 import Contact from "./components/Contact"
 import Error from "./components/Error"
 import RestraurantMenu from "./components/RestraurantMenu"
-// import Grocery from "./components/Grocery"
+import Grocery from "./components/Grocery"
 
 
 // Chunking
@@ -16,8 +16,8 @@ import RestraurantMenu from "./components/RestraurantMenu"
 // Lazy Loading
 // on demand loading
 
-const Grocery =lazy(()=>import("./components/Grocery"))
-
+// const Grocery =lazy(()=>import("./components/Grocery"))
+// console.log(Grocery);
 const AppLayout =()=>{ 
     return(
         <div className="app">
@@ -53,7 +53,8 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/grocery",
-                element:<Suspense fallback={<h1>Loading....</h1>} Grocery/>
+                element:< Grocery/> 
+                // Suspense fallback={<h1>Loading....</h1>}
             }
             
         ],
