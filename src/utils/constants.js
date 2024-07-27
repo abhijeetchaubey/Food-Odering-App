@@ -8,4 +8,8 @@ export const styleCard ={
     backgroundColor:"#f0f0f0"
 }
 
-export const MENU_URL ="https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=30.3164945&lng=78.03219179999999&restaurantId="
+export const MENU_URL ="https:www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=26.8466937&lng=80.94616599999999&restaurantId="
+
+export const SWIGGY_URL_RESTRO= "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+
+export const GITHUB_URL_USER="https://api.github.com/users/abhijeetchaubey"
