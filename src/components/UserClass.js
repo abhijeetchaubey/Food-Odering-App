@@ -1,5 +1,6 @@
 // Class based Component used in Older React 
 import React from "react"
+import { GITHUB_URL_USER } from "../utils/constants";
 
 
 class UserClass extends React.Component {
@@ -16,7 +17,7 @@ class UserClass extends React.Component {
 
     async componentDidMount(){
         // call Api here
-        const data = await fetch("https://api.github.com/users/abhijeetchaubey")
+        const data = await fetch(GITHUB_URL_USER)
         const json = await data.json()
 
         console.log(json);
