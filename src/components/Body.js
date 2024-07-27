@@ -4,7 +4,9 @@ import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-
+import { SWIGGY_URL_RESTRO } from "../utils/constants";
+import Heading from "./Heading";
+import UpdateRestaurant from "./UpdateRestraurant";
 const Body =()=>{
 
     // Local State Variable -Super Powefull Variable
@@ -21,9 +23,7 @@ const Body =()=>{
 
     // swiggy api for restaurant
     const fetchData=async()=>{
-        const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=30.3164945&lng=78.03219179999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-        );
+        const data = await fetch(SWIGGY_URL_RESTRO);
 
         const json = await data.json();
 
@@ -37,19 +37,21 @@ const Body =()=>{
 
     if(!onlineStatus) return <h1>Looks like you are offline!! check your internet connection</h1>
 
-    return listofRestaurant.length=== 0 ? <Shimmer/> :(
+    return listofRestaurant?.length=== 0 ? <Shimmer/> :(
         <div className="body">
-            <div className="filter">
-                <div className="search">
+            <div className="filter flex justify-evenly">
+                <div className="search m-4 p-4">
                     <input
                     type="search"
-                    className="search-box"
+                    className="px-2 py-1 border-2  border-black rounded-full" 
                     value={searchText}
                     onChange={(e)=>{
                         setsearchText(e.target.value)
                     }}
+                    
                     />
                     <button
+                    className="px-4 py-1 bg-green-100  m-2 rounded-lg"
                     onClick={(e)=>{
                         // Filter restaurant cards and update the UI
                         // searchText
@@ -61,8 +63,9 @@ const Body =()=>{
                     }}
                     >Search</button>
                 </div>
+                <div className=" m-4 p-4 flex item-center">
                 <button
-                className="filter-btn"
+                className="px-4 py-2 bg-gray-200 border-collapse rounded-xl"
                 title="Top rated Restraurant"
                 // .data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants?.avgRating
                 onClick={()=>{
@@ -72,21 +75,26 @@ const Body =()=>{
                     console.log(filteredList);
                     setfilteredRestaurant(filteredList)
                 }}
-                >Top Rated Restaurant</button> 
+                >Top Rated Restaurant</button>
+                </div> 
             </div>
-            
-            <div className="restraunt-container">
-                {filteredRestraurant.map((restraunt)=>(
+
+            <Heading/>
+
+            <div className="flex flex-wrap  pl-[10%]">
+                {filteredRestraurant?.map((restraunt)=>(
                     <Link
                     to={"/restraurants/"+restraunt.info.id}
                     key={restraunt.info.id}
                     style={{ textDecoration: 'none', color: 'inherit'}}
 
                     >
-                        <RestraurantCard resList={restraunt} />
+                        <RestraurantCard resList={restraunt} 
+                        />
                     </Link>
                 ))}
             </div>
+
         </div>
         
     )

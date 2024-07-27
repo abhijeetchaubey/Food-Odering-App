@@ -1,7 +1,6 @@
 import { useEffect,useState } from "react"
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import { MENU_URL } from "../utils/constants";
 import useRestaurantMenu from "../utils/useRestraurantMenu";
 
 const RestraurantMenu =()=>{
@@ -49,8 +48,10 @@ const RestraurantMenu =()=>{
 
     const {offers=[]}=resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle || '';
     console.log(itemCards);
+    console.log(offers?.info?.expiryTime, "hii");
     console.log({expectationNotifiers});
     // console.log({item?.info?.discription});
+    // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
 
     return resInfo===null? (
         <Shimmer/>
@@ -59,7 +60,7 @@ const RestraurantMenu =()=>{
             
             <div className="restraurant-menu-container">
                 <div>
-                    <h1>{name}</h1>
+                    <h1 className="mb-2">{name}</h1>
                 </div>
                 <div className="restraurant-menu-detail">
                     <div>
@@ -74,7 +75,7 @@ const RestraurantMenu =()=>{
                 </div >
             </div>
             <div className="offer-detail">
-            <h2>Deals for You</h2>
+            <h2 className="my-5">Deals for You</h2>
             </div>
             <div className="offer-detail">
                 {offers.map((discount)=>(
@@ -82,9 +83,11 @@ const RestraurantMenu =()=>{
                     className="offer-box"
                     key={discount.info.offerIds}
                     >   
+                    {discount.info.offerIds.offerLogo}
                         <span>
                             <strong>{discount.info.header} </strong>
-                            <p>{discount.info.couponCode}</p>
+
+                            <p>{discount.info ? discount.info.couponCode : discount.info.expiryTime}</p>
                         </span>
                     </div>
                 ))}

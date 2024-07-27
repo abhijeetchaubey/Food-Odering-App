@@ -3,7 +3,6 @@ import { useState } from "react"
 
 const User=(props)=>{
     const[count,setcount]=useState(0)
-    const[count2,setcoun2t]=useState(1)
 
 
     return( 

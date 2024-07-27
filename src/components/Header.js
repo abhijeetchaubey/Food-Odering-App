@@ -15,27 +15,27 @@ const Header =()=>{
     // },[btnName]);
 
     return(
-        <div className="header">
+        <div className="flex justify-between aling-middle rounded-lg py-0 px-5 bg-orange-200 shadow-lg mb-3">
             <div className="logo-container">
-                <img  className="logo" src={LOGO_URL}/>
+                <img  className="w-16 rounded-lg m-2" src={LOGO_URL}/>
             </div>
             <div className="nav-items">
                 <div>
-                    <ul>
-                        <li>Online Status:{onlineStatus ? "✅":"🔴" }</li>
-                        <li>
+                    <ul className="flex p-4 m-4 text-2xl font-semibold gap-x-5 ">
+                        <li > Online Status:{onlineStatus ? "✅":"🔴" }</li>
+                        <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">
                         <NavLink to="/">Home</NavLink>
                         </li>
-                        <li>
+                        <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">
                         <NavLink to="/about">About US</NavLink>
                         </li>
-                        <li>
+                        <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">
                             <NavLink to="/contact">Contact Us</NavLink>
                         </li>
-                        <li>
+                        <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">
                             <NavLink to="/grocery">Grocery</NavLink>
                         </li>
-                        <li>Cart</li>
+                        <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">Cart</li>
                         <button
                         className="login"
                         onClick={()=>{

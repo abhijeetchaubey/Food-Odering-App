@@ -1,4 +1,4 @@
-import { CDN_URL, styleCard} from "../utils/constants";
+import { CDN_URL} from "../utils/constants";
 
 
 const RestraurantCard=(props)=>{
@@ -7,26 +7,28 @@ const RestraurantCard=(props)=>{
     const{cloudinaryImageId,name,cuisines,avgRating,costForTwo,sla} =resList?.info;   //destructing
 
     return(
-        <div className="restraunt-card" style={styleCard}>
+        
+        <div>
+            <div className="m-4  w-[250px] h-[370px] rounded-lg hover:bg-gray-200 bg-gray-50">
             <div>
                 <img
-                className="restraunt-logo "
+                className="rounded-lg max-h-[200px] w-full "
                 alt={resList?.info?.name || 'Restaurant Image'}
                 src={
-                    cloudinaryImageId 
-                        ? CDN_URL+cloudinaryImageId
-                        :"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.logo.wine%2Flogo%2FBurger_King&psig=AOvVaw2ptafemGG9Wtr5OfG_TZaC&ust=1721900363379000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPDHv--wv4cDFQAAAAAdAAAAABAE"
+                        CDN_URL+cloudinaryImageId
                 }
                 />
 
             </div>
             <div className="card-details">
-            <>{name || 'Name not available'}</>
+            <h3 className="font-bold py-4 text-lg">{name || 'Name not available'}</h3>
             <p>{avgRating || 'Rating not available'} {sla?.slaString}</p>
             <p>{cuisines.join(", ") || 'Cuisines not available'}</p>
             <p>{costForTwo || 'Cost for two not available'}</p>
 
             </div>
+            </div>
+            
         </div>
     )
 }
