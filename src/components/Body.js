@@ -1,12 +1,13 @@
 
-import RestraurantCard from "./RestraurantCard"
+import RestraurantCard,{ withIsOpenLabel } from "./RestraurantCard"
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom";
-import useOnlineStatus from "../utils/useOnlineStatus";
+import useOnlineStatus  from "../utils/useOnlineStatus";
 import { SWIGGY_URL_RESTRO } from "../utils/constants";
 import Heading from "./Heading";
 import UpdateRestaurant from "./UpdateRestraurant";
+
 const Body =()=>{
 
     // Local State Variable -Super Powefull Variable
@@ -14,7 +15,10 @@ const Body =()=>{
     const [filteredRestraurant,setfilteredRestaurant]=useState([])
     const [searchText,setsearchText]=useState("")
 
-    // console.log("Body Rendered"); 
+    const RestraurantCardOpen = withIsOpenLabel(RestraurantCard);
+
+
+    console.log("Body Rendered",listofRestaurant); 
 
     useEffect(()=>{
         fetchData();
@@ -89,8 +93,12 @@ const Body =()=>{
                     style={{ textDecoration: 'none', color: 'inherit'}}
 
                     >
-                        <RestraurantCard resList={restraunt} 
-                        />
+                        {
+                        restraunt.info.isOpen  ? (
+                        <RestraurantCardOpen resList={restraunt} />
+                    ):(
+                        <RestraurantCard resList={restraunt} />
+                    )}
                     </Link>
                 ))}
             </div>

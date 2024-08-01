@@ -4,7 +4,14 @@ import { CDN_URL} from "../utils/constants";
 const RestraurantCard=(props)=>{
     const {resList} = props;
 
-    const{cloudinaryImageId,name,cuisines,avgRating,costForTwo,sla} =resList?.info;   //destructing
+    const {
+        cloudinaryImageId = '',
+        name = '',
+        cuisines = [],
+        avgRating = 0,
+        costForTwo = '',
+        sla = {}
+    } = resList?.info || {};
 
     return(
         
@@ -33,4 +40,19 @@ const RestraurantCard=(props)=>{
     )
 }
 
+// Higher Order Component 
+
+// input - Restraurant ==>> RestraurantCard isOpen
+
+export const withIsOpenLabel = (RestraurantCard)=>{
+    
+    return(props)=>{
+        return(
+            <div>
+                <label className=" ml-4 p-1  absolute bg-black text-white">Open</label>
+                <RestraurantCard {...props}/>
+            </div>
+        )
+    }
+}
 export default RestraurantCard

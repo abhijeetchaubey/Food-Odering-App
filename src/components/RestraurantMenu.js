@@ -2,6 +2,8 @@ import { useEffect,useState } from "react"
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
 import useRestaurantMenu from "../utils/useRestraurantMenu";
+import RestraurantCategory from "./RestraurantCategory";
+
 
 const RestraurantMenu =()=>{
 
@@ -42,16 +44,20 @@ const RestraurantMenu =()=>{
         expectationNotifiers=[]
 
     
-    } = resInfo?.cards?.[2]?.card?.card?.info || {};
+    } = resInfo?.cards[2]?.card?.card?.info || {};
 
     const{itemCards=[]}=resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card || '';
 
     const {offers=[]}=resInfo?.cards[3]?.card?.card?.gridElements?.infoWithStyle || '';
-    console.log(itemCards);
-    console.log(offers?.info?.expiryTime, "hii");
-    console.log({expectationNotifiers});
-    // console.log({item?.info?.discription});
-    // console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
+    
+    // console.log(itemCards);
+    console.log(resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
+    // console.log({expectationNotifiers});
+
+    const categories=resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(category=>category?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+    console.log(categories,"hii");
+
+    const [showIndex,setShowIndex]= useState(null )
 
     return resInfo===null? (
         <Shimmer/>
@@ -92,26 +98,18 @@ const RestraurantMenu =()=>{
                     </div>
                 ))}
             </div>
-            <div className="menu-items">
-            <h2>Menu</h2>
-                <ul>
-                    {itemCards.map((item)=>(
-                    <li
-                    key={item.card.info.id}
-                    >
-                    <div className="item-name">{item.card.info.name}</div > 
-                    ₹{item.card.info.price ? item.card.info.price/100 : item.card.info.defaultPrice/100} <br></br>
-                    <p>
-                    {item?.card?.info?.ratings?.aggregatedRating?.ratingCountV2 
-                ? `★${item?.card?.info?.ratings?.aggregatedRating?.rating}(${item?.card?.info?.ratings?.aggregatedRating?.ratingCountV2})` 
-                : item?.card?.info?.ratings?.aggregatedRating?.rating}
-                    </p>
-                    <span>{item?.card?.info?.description}</span>
-                    </li>
-                    
-                    ))}
-                </ul>
-
+            
+            <div className="ml-[100px] mt-6" >
+                {/** Categories Accordions */}
+                {categories.map((category,index)=> (<RestraurantCategory 
+                key={category?.card?.card?.title}
+                rescategory={category?.card?.card}
+                showItems={index===showIndex}
+                setShowIndex={()=>(
+                    setShowIndex(index === showIndex ? null : index)                    
+                )}
+                />
+                ))}
             </div>
         </div>
     )
