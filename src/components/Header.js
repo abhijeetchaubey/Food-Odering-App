@@ -1,18 +1,18 @@
-import { useEffect, useState } from "react"
+import {  useState,useContext } from "react"
 import { LOGO_URL } from "../utils/constants"
 import { Link, NavLink } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/UserContext";
+
 const Header =()=>{
     const[btnName,setbtnName]=useState("Login");
-    console.log("header render");
+    // console.log("header render");
 
     const onlineStatus=useOnlineStatus()
-    // if no depencency array => useEffect is called on every render
-    // if dependency array is empty=[]=> useEffect is called on initial render (just once) 
-    // if dependency array is [btnName] => called every time btnName is updated
-    // useEffect(()=>{
-    //     console.log("useEffect called");
-    // },[btnName]);
+
+    const {loggedINUser} =useContext(UserContext); 
+    console.log(loggedINUser);
+    
 
     return(
         <div className="flex justify-between aling-middle rounded-lg py-0 px-5 bg-orange-200 shadow-lg mb-3">
@@ -35,7 +35,7 @@ const Header =()=>{
                         <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">
                             <NavLink to="/grocery">Grocery</NavLink>
                         </li>
-                        <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">Cart</li>
+                        <li className="hover:'w-30' hover:min-h-ful hover:bg-orange-300 rounded-sm active:text-orange-600">{loggedINUser}</li>
                         <button
                         className="login"
                         onClick={()=>{

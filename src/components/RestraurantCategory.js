@@ -1,7 +1,7 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const RestraurantCategory =({rescategory,showItems,setShowIndex})=>{
+const RestraurantCategory =({rescategory,showItems,setShowIndex,})=>{
     // console.log(rescategory);
 
     // const [showItems,setShowItems]=useState(false)
@@ -21,7 +21,8 @@ const RestraurantCategory =({rescategory,showItems,setShowIndex})=>{
                 </div>
                 <div>
                                 {/**Acordian Body */}
-                    {showItems && <ItemList items={rescategory?.itemCards}/>
+                    {showItems && <ItemList items={rescategory?.itemCards}
+                    />
                     }
                 </div>
             </div>

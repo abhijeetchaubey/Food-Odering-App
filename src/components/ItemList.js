@@ -1,7 +1,8 @@
 import { CDN_URL } from "../utils/constants";
 
-const ItemList=({items})=>{
+const ItemList=({items,})=>{
     console.log(items,"good");
+    
     return(
         <div>
             {items.map((item)=>(
@@ -10,8 +11,8 @@ const ItemList=({items})=>{
                 className="p-2 m-2 border-gray-200 border-b-2 flex justify-between ">
                 <div className="w-9/12">
                     <div className="py-2">
-                        {/* <p>{item.card.info.itemAttribute.vegClassifier==="NONVEG" ?"🔺":"🟢"}</p>
-                        <span>{item.card.info.isBestseller}</span> */}
+                        <p>{item.card.info.itemAttribute.vegClassifier==="NONVEG" ?"🔺":"🟢"}</p>
+                        {/* <span>{item.card.info.isBestseller}</span> */}
                         <span className="text-slate-700 font-bold text-2xl">{item.card.info.name}</span>
                         <p className="pt-2 text-black font-bold">₹ {item.card.info.price ? item.card.info.price/100: item.card.info.defaultPrice/100}</p>
 

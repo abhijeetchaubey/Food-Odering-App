@@ -1,8 +1,12 @@
+import { useContext } from "react";
 import { CDN_URL} from "../utils/constants";
+import UserContext from "../utils/UserContext";
 
 
 const RestraurantCard=(props)=>{
     const {resList} = props;
+
+    const {loggedINUser}=useContext(UserContext)
 
     const {
         cloudinaryImageId = '',
@@ -10,7 +14,7 @@ const RestraurantCard=(props)=>{
         cuisines = [],
         avgRating = 0,
         costForTwo = '',
-        sla = {}
+        sla = {},
     } = resList?.info || {};
 
     return(
@@ -29,11 +33,12 @@ const RestraurantCard=(props)=>{
             </div>
             <div className="card-details">
             <h3 className="font-bold py-4 text-lg">{name || 'Name not available'}</h3>
-            <p>{avgRating || 'Rating not available'} {sla?.slaString}</p>
+            <p>{avgRating || 'Rating not available'}stars {sla?.slaString}</p>
             <p>{cuisines.join(", ") || 'Cuisines not available'}</p>
             <p>{costForTwo || 'Cost for two not available'}</p>
-
+            <h4>User:{loggedINUser}</h4>
             </div>
+
             </div>
             
         </div>

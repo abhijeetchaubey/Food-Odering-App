@@ -1,12 +1,12 @@
 
 import RestraurantCard,{ withIsOpenLabel } from "./RestraurantCard"
-import { useEffect, useState } from "react";
+import { useEffect, useState,useContext} from "react";
 import Shimmer from "./Shimmer"
 import { Link } from "react-router-dom";
 import useOnlineStatus  from "../utils/useOnlineStatus";
 import { SWIGGY_URL_RESTRO } from "../utils/constants";
 import Heading from "./Heading";
-import UpdateRestaurant from "./UpdateRestraurant";
+import UserContext from "../utils/UserContext";
 
 const Body =()=>{
 
@@ -39,7 +39,10 @@ const Body =()=>{
 
     const onlineStatus = useOnlineStatus()
 
+
     if(!onlineStatus) return <h1>Looks like you are offline!! check your internet connection</h1>
+
+    const {loggedINUser,setUserName} = useContext(UserContext)
 
     return listofRestaurant?.length=== 0 ? <Shimmer/> :(
         <div className="body">
@@ -81,8 +84,15 @@ const Body =()=>{
                 }}
                 >Top Rated Restaurant</button>
                 </div> 
+                <div className="m-4 p-4 ">
+                    <label>UserName:</label>
+                    <input
+                    className="border border-black p-2"
+                    value={loggedINUser}
+                    onChange={(e)=>setUserName(e.target.value)}
+                    />
+                </div> 
             </div>
-
             <Heading/>
 
             <div className="flex flex-wrap  pl-[10%]">

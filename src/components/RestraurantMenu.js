@@ -10,6 +10,7 @@ const RestraurantMenu =()=>{
     const {resId} = useParams();
     console.log(resId);
 
+
 // ********** custom Hooks for Api fetching and displaying functionality in useRestraurantMenu**********
     const resInfo = useRestaurantMenu(resId)
 //*****Fetching API for rendering menuCard using normal Hooks */ 
@@ -66,7 +67,7 @@ const RestraurantMenu =()=>{
             
             <div className="restraurant-menu-container">
                 <div>
-                    <h1 className="mb-2">{name}</h1>
+                    <h1 className="font-bold my-6 text-2xl">{name}</h1>
                 </div>
                 <div className="restraurant-menu-detail">
                     <div>
@@ -106,7 +107,7 @@ const RestraurantMenu =()=>{
                 rescategory={category?.card?.card}
                 showItems={index===showIndex}
                 setShowIndex={()=>(
-                    setShowIndex(index === showIndex ? null : index)                    
+                    setShowIndex(index === showIndex ? null : index)
                 )}
                 />
                 ))}
