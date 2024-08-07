@@ -60,3 +60,11 @@ Footer{
 # 2 Type of Routing in web app
   -Client side Routing
   -Server side Routing
+
+# Redux ToolKit
+    -Install @reduxjs/toolkit and react-redux
+  -Build our store 
+  -connect our store to our app
+  -Slice (cartSlice)
+  -dispatch(action)
+  -selector
