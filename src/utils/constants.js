@@ -13,3 +13,5 @@ export const MENU_URL ="https:www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU
 export const SWIGGY_URL_RESTRO= "https://www.swiggy.com/dapi/restaurants/list/v5?lat=26.8466937&lng=80.94616599999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
 export const GITHUB_URL_USER="https://api.github.com/users/abhijeetchaubey"
+
+export const EMPTY_CART_IMG ="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/2xempty_cart_yfxml0"
