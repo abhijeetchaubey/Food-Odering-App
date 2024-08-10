@@ -12,6 +12,7 @@ import UserContext from "./utils/UserContext"
 import { Provider } from "react-redux"
 import appStore from "./utils/appStore"
 import Cart from "./components/Cart"
+import Footer from "./components/Footer"
 
 
 // Chunking
@@ -39,12 +40,12 @@ const AppLayout =()=>{
     return(
         <Provider store={appStore}>
             <UserContext.Provider value={{loggedINUser:userName,setUserName}}>
-            <div className="app">
+            <div className="flex flex-col min-h-screen">
             <Header/>
-            <Outlet/>
-            {/* 
-                Footer
-            */}
+            <div className="flex-grow">
+                <Outlet />
+            </div>
+            <Footer/>
         </div>
         </UserContext.Provider>
 
@@ -105,6 +106,10 @@ const appRouter = createBrowserRouter([
     {
         path:"/cart",
         element:<Cart/>
+    },
+    {
+        path:"/footer",
+        element:<Footer/>
     }
 ])
 
