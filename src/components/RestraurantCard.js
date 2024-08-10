@@ -36,7 +36,6 @@ const RestraurantCard=(props)=>{
             <p>{avgRating || 'Rating not available'}stars {sla?.slaString}</p>
             <p>{cuisines.join(", ") || 'Cuisines not available'}</p>
             <p>{costForTwo || 'Cost for two not available'}</p>
-            <h4>User:{loggedINUser}</h4>
             </div>
 
             </div>
