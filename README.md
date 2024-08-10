@@ -68,3 +68,19 @@ Footer{
   -Slice (cartSlice)
   -dispatch(action)
   -selector
+
+
+  # Types of testing (developer)
+    - Unit Testing
+    - Integration Testing
+    - End to End Testing - e2e testing
+
+  # setting up Testing in our app
+  -Install React Testing Library
+  -Installed jest
+  -Installed Babel dependencies
+  -Configure Bable
+  -configure Parcel Config file to disable default bable transpilation
+  - Jest -npx jest --init
+  -Install JS-Dom library
+  
