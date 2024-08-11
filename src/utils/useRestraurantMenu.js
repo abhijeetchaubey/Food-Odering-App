@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_URL } from "../utils/constants";
+import { MENU_URL } from "../utils/constants.js";
 
 // Custom Hook
 
