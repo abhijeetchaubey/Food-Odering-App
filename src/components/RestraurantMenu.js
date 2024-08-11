@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { useParams } from "react-router-dom";
-import useRestaurantMenu from "../utils/useRestraurantMenu";
-import RestraurantCategory from "./RestraurantCategory";
+import useRestaurantMenu from "../utils/useRestraurantMenu.js";
+import RestraurantCategory from "./RestraurantCategory.js";
 
 const RestraurantMenu = () => {
     const { resId } = useParams();
@@ -73,6 +73,9 @@ const RestraurantMenu = () => {
             </div>
 
             <div className="mt-6">
+                <div className="ml-[50%] font-bold text-gray-400 ">
+                    <h1>MENU</h1>
+                </div>
                 {/** Categories Accordions */}
                 {categories.map((category, index) => (
                     <RestraurantCategory

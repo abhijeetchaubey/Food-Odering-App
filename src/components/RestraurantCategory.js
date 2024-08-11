@@ -1,36 +1,27 @@
 import ItemList from "./ItemList";
 import { useState } from "react";
 
-const RestraurantCategory =({rescategory,showItems,setShowIndex,})=>{
-    // console.log(rescategory);
+const RestraurantCategory = ({ rescategory, showItems, setShowIndex }) => {
 
-    // const [showItems,setShowItems]=useState(false)
-
-    const handleClick=()=>{
-        console.log("clicked");
-        setShowIndex()
-        // showItems===true ? false :true
+    const handleClick = () => {
+        setShowIndex();
     }
-    return(
-        <div>
-            {/** Header */}
-            <div className="w-7/12  shadow-lg p-4 mx-[150px] my-4">
-                <div className=" flex justify-between cursor-pointer"onClick={handleClick}>
-                <span className="font-bold text-lg">{rescategory.title}({rescategory.itemCards.length})</span>
-                <span>{showItems ? '⬆' : '⬇'}</span>
+
+    return (
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            {/* Header */}
+            <div className="bg-white shadow-lg rounded-lg p-4 mb-4">
+                <div className="flex justify-between items-center cursor-pointer" onClick={handleClick}>
+                    <span className="font-bold text-lg sm:text-xl">{rescategory.title} ({rescategory.itemCards.length})</span>
+                    <span className="text-xl animate-bounce w-6 h-6 ...">{showItems ? '⬆' : '⬇'}</span>
                 </div>
                 <div>
-                                {/**Acordian Body */}
-                    {showItems && <ItemList items={rescategory?.itemCards}
-                    />
-                    }
+                    {/* Accordion Body */}
+                    {showItems && <ItemList items={rescategory?.itemCards} />}
                 </div>
             </div>
-            
         </div>
-    )
+    );
 }
 
 export default RestraurantCategory;
-
-
