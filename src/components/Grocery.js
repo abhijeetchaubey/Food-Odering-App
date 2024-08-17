@@ -1,7 +1,14 @@
 const Grocery=()=>{
 
     return(
-        <h1>Our Grocery Store,and we have lot of child components inside this page!!</h1>
+        <h1 className="text-4xl font-extrabold text-center m-10"> "Fresh Groceries at Your Doorstep - Coming Soon to 3Am_Food!"
+
+
+
+
+
+
+        </h1>
     )
 }
 
