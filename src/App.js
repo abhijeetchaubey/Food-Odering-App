@@ -4,7 +4,7 @@ import Header from "./components/Header"
 import Body from "./components/Body"
 import { createBrowserRouter,Outlet,RouterProvider } from "react-router-dom"
 import About from "./components/About"
-import Contact from "./components/Contact"
+// import Contact from "./components/Contact"
 import Error from "./components/Error"
 import RestraurantMenu from "./components/RestraurantMenu"
 // import Grocery from "./components/Grocery"
@@ -23,6 +23,7 @@ import Footer from "./components/Footer"
 
 const Grocery =lazy(()=>import("./components/Grocery"))
 // console.log(Grocery);
+const Contact = lazy(()=>import("./components/Contact"))
 
 const AppLayout =()=>{
     const [userName,setUserName]=useState();
@@ -46,7 +47,7 @@ const AppLayout =()=>{
                 <Outlet />
             </div>
             <Footer/>
-        </div>
+            </div>
         </UserContext.Provider>
 
         </Provider>
@@ -68,7 +69,10 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/contact",
-                element:<Contact/>
+                element:<
+                Suspense fallback ={<h1>Loading...</h1>}>
+                <Contact/>
+                </Suspense>
             },
             {
                 path:"/restraurants/:resId",
