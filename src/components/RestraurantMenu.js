@@ -77,7 +77,7 @@ const RestraurantMenu = () => {
                     <h1>MENU</h1>
                 </div>
                 {/** Categories Accordions */}
-                {categories.map((category, index) => (
+                {categories?.map((category, index) => (
                     <RestraurantCategory
                         key={category?.card?.card?.title}
                         rescategory={category?.card?.card}

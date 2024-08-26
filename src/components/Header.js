@@ -17,6 +17,7 @@ const Header = () => {
 
     const { loggedINUser, setUserName } = useContext(UserContext);
 
+    //Cart Items to 
     return (
         <div className="flex justify-between items-center rounded-lg py-2 px-4 bg-orange-200 shadow-lg mb-3 sticky z-50 top-0">
             <div className="logo-container flex-shrink-0">

@@ -54,7 +54,7 @@ const UpdateRestaurant = () => {
 
   return (
     <div>
-      <button onClick={updateRestaurant}>Update Restaurant</button>
+      <button onLoad={updateRestaurant}>Update Restaurant</button>
       {status && <p>Status: {status}</p>}
       {response && <pre>{JSON.stringify(response, null, 2)}</pre>}
     </div>
