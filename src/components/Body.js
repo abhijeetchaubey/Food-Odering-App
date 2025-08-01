@@ -20,7 +20,7 @@ const Body = () => {
 
     const fetchData = async () => {
         try {
-            const data = await fetch(SWIGGY_URL_RESTRO);
+            const data = await fetch(`${PROXY_URL}${SWIGGY_URL_RESTRO}`);
         const json = await data.json();
         setlistofRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
