@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { SWIGGY_URL_RESTRO } from "../utils/constants";
+import { PROXY_URL, SWIGGY_URL_RESTRO } from "../utils/constants";
 import Heading from "./Heading";
 import UserContext from "../utils/UserContext";
 
@@ -19,10 +19,16 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch(SWIGGY_URL_RESTRO);
+        try {
+            const data = await fetch(SWIGGY_URL_RESTRO);
         const json = await data.json();
         setlistofRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        } catch (error) {
+            console.log("Error in Fetching data",error);
+            
+        }
+        
     };
 
     const onlineStatus = useOnlineStatus();
