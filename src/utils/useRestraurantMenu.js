@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { MENU_URL } from "../utils/constants.js";
+import { MENU_URL, PROXY_URL } from "../utils/constants.js";
 
 // Custom Hook
 
@@ -12,7 +12,7 @@ const useRestaurantMenu=(resId)=>{
     },[]);
 
     const fetchMenu= async()=>{
-        const menu = await fetch(MENU_URL+resId)
+        const menu = await fetch(`${PROXY_URL}${MENU_URL+resId}`)
         const json = await menu.json()
         setResInfo(json?.data)
     }
