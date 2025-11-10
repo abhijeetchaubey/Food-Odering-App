@@ -18,17 +18,22 @@ const Body = () => {
         fetchData();
     }, []);
 
+    const [error, setError] = useState(null);
+
     const fetchData = async () => {
         try {
-            const data = await fetch(`${PROXY_URL}${SWIGGY_URL_RESTRO}`);
-        const json = await data.json();
-        setlistofRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setfilteredRestaurant(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            const json = await fetchWithRetry(SWIGGY_URL_RESTRO);
+            const restaurants = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+            if (!restaurants) {
+                throw new Error("No restaurant data found");
+            }
+            setlistofRestaurant(restaurants);
+            setfilteredRestaurant(restaurants);
+            setError(null);
         } catch (error) {
-            console.log("Error in Fetching data",error);
-            
+            console.error("Error fetching data:", error);
+            setError("Unable to load restaurants. Please try again later.");
         }
-        
     };
 
     const onlineStatus = useOnlineStatus();
